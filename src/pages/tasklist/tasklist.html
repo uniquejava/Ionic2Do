@@ -15,7 +15,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item-sliding #slidingItem *ngFor="let task of tasks">
+    <ion-item-sliding #slidingItem *ngFor="let task of tasks | async">
       <ion-item [ngClass]="{taskDone: task.status == 'done'}">{{ task.title }}</ion-item>
       <ion-item-options side="right" (ionSwipe)="removeTask(slidingItem, task)">
         <button ion-button="" icon-only="" (click)="markAsDone(slidingItem, task)" color="secondary">
